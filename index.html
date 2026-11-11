@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#08080b">
+    <meta name="description" content="Unseen Unblocker">
+    <title>Unseen Unblocker</title>
+    <link id="site-favicon" rel="icon" href="assets/img/favicons/Sitelogo.png">
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="src/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell" id="app">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" data-page="home" aria-label="Unseen Unblocker home">
+          <span class="brand-image-slot"><img data-icon="Unseen" alt=""></span>
+          <span class="brand-name">Unseen Unblocker</span>
+        </a>
+
+        <div class="sidebar-heading"><span>OPEN TABS</span><button class="new-tab" id="home-button" type="button" aria-label="Open a new Home tab">＋</button></div>
+        <nav class="open-tabs" id="open-tabs" aria-label="Open tabs"></nav>
+
+        <div class="sidebar-heading explore-heading"><span>EXPLORE</span></div>
+        <nav class="side-nav" aria-label="Sections">
+          <button class="nav-item" data-page="games" type="button"><img class="ui-icon asset-icon" data-icon="Games" alt=""><span>Games</span></button>
+          <button class="nav-item" data-page="music" type="button"><img class="ui-icon asset-icon" data-icon="Music" alt=""><span>Music</span></button>
+          <button class="nav-item" data-page="chat" type="button"><img class="ui-icon asset-icon" data-icon="Chat" alt=""><span>Chat</span></button>
+          <button class="nav-item" id="settings-button" type="button"><img class="ui-icon asset-icon" data-icon="Settings" alt=""><span>Settings</span></button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-tip">
+            <span class="sidebar-tip-label">TIP</span>
+            <p id="sidebar-tip" aria-live="polite"></p>
+          </div>
+          <span class="status-dot" aria-hidden="true"></span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar" aria-label="Browser controls">
+          <button class="icon-button mobile-menu" id="menu-button" type="button" aria-label="Open menu" title="Open menu">
+            <svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="browser-actions">
+            <button class="icon-button" id="back-button" type="button" aria-label="Back" title="Back">
+              <img class="asset-icon" data-icon="Back" alt="">
+            </button>
+            <button class="icon-button" id="forward-button" type="button" aria-label="Forward" title="Forward">
+              <img class="asset-icon" data-icon="Forward" alt="">
+            </button>
+            <button class="icon-button" id="refresh-button" type="button" aria-label="Refresh" title="Refresh">
+              <img class="asset-icon" data-icon="Refresh" alt="">
+            </button>
+            <button class="icon-button" id="about-blank-button" type="button" aria-label="Open Unseen in a new about:blank tab" title="Open in about:blank">
+              <svg class="toolbar-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg>
+            </button>
+            <button class="icon-button" id="fullscreen-button" type="button" aria-label="Enter fullscreen" aria-pressed="false" title="Enter fullscreen">
+              <svg class="toolbar-symbol fullscreen-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </button>
+          </div>
+          <label class="address-bar">
+            <svg class="search-icon fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+            <input id="address-input" type="search" placeholder="Search or enter website name" autocomplete="off" aria-label="Search or enter website name">
+          </label>
+          <button class="icon-button bookmark-button" id="bookmark-button" type="button" aria-label="Bookmark this page" aria-pressed="false" title="Bookmark this page">
+            <svg class="bookmark-star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9z"/></svg>
+          </button>
+        </header>
+
+        <section class="dashboard" id="dashboard" tabindex="-1" aria-label="Unseen Unblocker home">
+          <div class="unseen-home-pattern" aria-hidden="true"></div>
+          <div class="dashboard-center" id="dashboard-center">
+            <div class="dashboard-logo"><img data-icon="Unseen" alt=""></div>
+            <h1>Unseen</h1>
+            <label class="dashboard-search">
+              <svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+              <input id="dashboard-search" type="search" placeholder="Search or enter website name" autocomplete="off" aria-label="Search or enter website name">
+            </label>
+            <nav class="dashboard-links" aria-label="Explore">
+              <button class="dashboard-link" data-page="games" type="button"><span class="link-icon"><img data-icon="Games" alt=""></span><span>Games</span></button>
+              <button class="dashboard-link" data-page="music" type="button"><span class="link-icon"><img data-icon="Music" alt=""></span><span>Music</span><span class="coming-badge">Coming soon</span></button>
+              <button class="dashboard-link" data-page="chat" type="button"><span class="link-icon"><img data-icon="Chat" alt=""></span><span>Chat</span><span class="coming-badge">Coming soon</span></button>
+            </nav>
+          </div>
+          <section class="coming-screen" id="coming-screen" hidden aria-live="polite">
+            <img class="coming-icon" id="coming-icon" alt="">
+            <h2 id="coming-title"></h2>
+            <div class="coming-sign">COMING SOON</div>
+          </section>
+          <section class="games-screen" id="games-screen" hidden aria-label="Games">
+            <div class="games-catalog" id="games-catalog">
+              <header class="games-heading">
+                <h2>Games</h2>
+                <p>Choose a game to play.</p>
+                <label class="games-search">
+                  <svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+                  <input id="games-search" type="search" placeholder="Search games..." autocomplete="off" aria-label="Search games">
+                </label>
+              </header>
+              <div class="game-grid" id="game-grid"></div>
+              <p class="no-games" id="no-games" hidden>No games match your search.</p>
+            </div>
+            <section class="game-player" id="game-player" hidden aria-label="Game player">
+              <header class="game-player-header">
+                <button class="back-to-games" id="back-to-games" type="button">← <span>All games</span></button>
+                <h2 id="active-game-title"></h2>
+                <div class="game-player-actions">
+                  <button class="game-player-action" id="game-about-blank" type="button">Open in about:blank</button>
+                  <button class="game-player-action" id="game-fullscreen" type="button" aria-pressed="false">Fullscreen</button>
+                </div>
+              </header>
+              <iframe
+                class="game-frame"
+                id="game-frame"
+                title="Game"
+                allow="autoplay; fullscreen; gamepad"
+                sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms allow-popups"
+              ></iframe>
+            </section>
+          </section>
+          <span class="dashboard-caption">UNSEEN UNBLOCKER</span>
+        </section>
+      </main>
+    </div>
+
+    <aside class="controls-hint" id="controls-hint" role="status" aria-label="Keyboard control" hidden>
+      <kbd>TAB</kbd>
+      <span>Show/Hide Dashboard</span>
+    </aside>
+    <div class="intro" id="intro" aria-label="Unseen Unblocker" hidden>
+      <div class="intro-lockup">
+        <span class="intro-logo"><img data-icon="Unseen" alt=""></span>
+        <span class="intro-title" id="intro-title">Unseen</span>
+      </div>
+      <span class="intro-orbit intro-orbit-one"></span>
+      <span class="intro-orbit intro-orbit-two"></span>
+    </div>
+    <aside class="project-notice" id="project-notice" role="status" aria-live="polite" hidden>
+      <span class="notice-mark" aria-hidden="true">i</span>
+      <span>Unseen is still a work in progress project. Expect bugs!</span>
+      <button class="notice-close" id="notice-close" type="button" aria-label="Dismiss notice">×</button>
+      <span class="notice-timer" aria-hidden="true"><span id="notice-timer-bar"></span></span>
+    </aside>
+
+    <dialog class="startup-dialog" id="startup-dialog" aria-labelledby="startup-title">
+      <span class="startup-mark" aria-hidden="true">U</span>
+      <h2 id="startup-title">Welcome to Unseen</h2>
+      <p>Would you like to open Unseen in a new about:blank tab?</p>
+      <div class="startup-actions">
+        <button class="startup-secondary" id="continue-here" type="button">Continue here</button>
+        <button class="startup-primary" id="open-about-blank" type="button">Open in about:blank</button>
+      </div>
+    </dialog>
+    <dialog class="settings-dialog" id="settings-dialog" aria-labelledby="settings-title">
+      <button class="dialog-close" id="settings-close" type="button" aria-label="Close settings">×</button>
+      <img class="settings-logo asset-icon" data-icon="Settings" alt="">
+      <h2 id="settings-title">Settings</h2>
+      <label class="setting-row" for="startup-page">
+        <span><strong>Startup page</strong><small>Choose which section opens after the intro.</small></span>
+        <select id="startup-page" class="setting-select">
+          <option value="home">Home</option>
+          <option value="games">Games</option>
+        </select>
+      </label>
+      <div class="setting-row setting-mask-row">
+        <span id="tab-mask-title"><strong>Tab name and icon</strong><small>Choose how Unseen appears in your browser tab.</small></span>
+        <div class="mask-picker" id="mask-picker">
+          <button
+            class="mask-picker-button"
+            id="mask-picker-button"
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-labelledby="tab-mask-title mask-selected-name"
+          >
+            <img id="mask-selected-icon" src="assets/img/favicons/Sitelogo.png" alt="">
+            <span id="mask-selected-name">Unseen</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+          </button>
+          <div class="mask-options" id="mask-options" role="listbox" aria-labelledby="tab-mask-title" hidden></div>
+        </div>
+      </div>
+      <label class="setting-row" for="notice-toggle">
+        <span><strong>Show project notice</strong><small>Show the work-in-progress message after the intro.</small></span>
+        <input id="notice-toggle" type="checkbox">
+      </label>
+      <label class="setting-row" for="cursor-trail-toggle">
+        <span><strong>Cursor trail</strong><small>Show a soft particle trail behind your pointer.</small></span>
+        <input id="cursor-trail-toggle" type="checkbox">
+      </label>
+      <label class="setting-row" for="cursor-trail-color">
+        <span><strong>Trail color</strong><small>Choose the cursor trail's glow color.</small></span>
+        <input id="cursor-trail-color" class="setting-color" type="color" value="#aa85ff" aria-label="Cursor trail color">
+      </label>
+      <label class="setting-row" for="home-background">
+        <span><strong>Home background</strong><small>Choose a background style for the Home screen.</small></span>
+        <select id="home-background" class="setting-select">
+          <option value="unseen">Unseen</option>
+          <option value="aurora">Aurora</option>
+          <option value="nebula">Nebula</option>
+          <option value="stars">Starfield</option>
+          <option value="sunset">Sunset</option>
+          <option value="ocean">Ocean</option>
+          <option value="forest">Forest</option>
+          <option value="grid">Neon grid</option>
+          <option value="solid">Color wash</option>
+        </select>
+      </label>
+      <label class="setting-row" for="home-background-color">
+        <span><strong>Home color</strong><small>Set the accent color used by the Home background.</small></span>
+        <input id="home-background-color" class="setting-color" type="color" value="#8064d8" aria-label="Home background color">
+      </label>
+      <label class="setting-row" for="tabs-background">
+        <span><strong>Open tabs background</strong><small>Choose the look of the open-tabs panel.</small></span>
+        <select id="tabs-background" class="setting-select">
+          <option value="unseen">Unseen</option>
+          <option value="aurora">Aurora</option>
+          <option value="nebula">Nebula</option>
+          <option value="stars">Starfield</option>
+          <option value="sunset">Sunset</option>
+          <option value="ocean">Ocean</option>
+          <option value="forest">Forest</option>
+          <option value="grid">Neon grid</option>
+          <option value="solid">Color wash</option>
+        </select>
+      </label>
+      <label class="setting-row" for="tabs-background-color">
+        <span><strong>Tabs color</strong><small>Set the accent color used by the open-tabs panel.</small></span>
+        <input id="tabs-background-color" class="setting-color" type="color" value="#8064d8" aria-label="Open tabs background color">
+      </label>
+      <label class="setting-row" for="theme-animation-toggle">
+        <span><strong>Animated themes</strong><small>Turn off moving background effects.</small></span>
+        <input id="theme-animation-toggle" type="checkbox">
+      </label>
+      <label class="setting-row" for="site-font">
+        <span><strong>Site font</strong><small>Change the font used throughout Unseen.</small></span>
+        <select id="site-font" class="setting-select">
+          <option value="dm-sans">DM Sans</option>
+          <option value="manrope">Manrope</option>
+          <option value="system">System</option>
+          <option value="rounded">Rounded</option>
+          <option value="serif">Serif</option>
+          <option value="mono">Monospace</option>
+        </select>
+      </label>
+      <button class="replay-button" id="settings-fullscreen" type="button">Toggle fullscreen</button>
+      <button class="replay-button" id="settings-about-blank" type="button">Open in about:blank</button>
+      <button class="replay-button" id="replay-intro" type="button">Replay intro</button>
+    </dialog>
+    <canvas class="cursor-trail" id="cursor-trail" aria-hidden="true"></canvas>
+  </body>
+</html>
